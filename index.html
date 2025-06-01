@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>羽毛球技术要点训练手册</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 30px 0;
+            margin-bottom: 30px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71, #1a2a6c);
+        }
+        
+        h1 {
+            font-size: 3.2rem;
+            margin-bottom: 15px;
+            color: #1a2a6c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .subtitle {
+            font-size: 1.4rem;
+            color: #e52e71;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+        
+        .intro {
+            max-width: 800px;
+            margin: 0 auto 20px;
+            font-size: 1.1rem;
+            color: #444;
+            padding: 0 20px;
+        }
+        
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin-bottom: 40px;
+        }
+        
+        .category {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+        }
+        
+        .category:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+        }
+        
+        .category-header {
+            padding: 20px;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+        
+        .category-header i {
+            font-size: 2rem;
+            margin-right: 15px;
+        }
+        
+        .category-header h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+        
+        .category-content {
+            padding: 25px;
+        }
+        
+        .point {
+            margin-bottom: 20px;
+            padding-left: 35px;
+            position: relative;
+            border-left: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .point:hover {
+            border-left: 3px solid #e52e71;
+            background: rgba(234, 234, 234, 0.3);
+            padding-left: 30px;
+        }
+        
+        .point-number {
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 25px;
+            height: 25px;
+            background: #1a2a6c;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        
+        .point h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+            color: #1a2a6c;
+        }
+        
+        .point p {
+            color: #555;
+        }
+        
+        .highlight {
+            background: #fff9db;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #e52e71;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: white;
+            font-size: 1.1rem;
+            margin-top: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+        }
+        
+        /* Category specific colors */
+        .preparation .category-header { background: linear-gradient(90deg, #1a2a6c, #3a56a0); }
+        .swing .category-header { background: linear-gradient(90deg, #b21f1f, #d9534f); }
+        .footwork .category-header { background: linear-gradient(90deg, #ff8a00, #ffa94d); }
+        .power .category-header { background: linear-gradient(90deg, #00695c, #009688); }
+        .strategy .category-header { background: linear-gradient(90deg, #6a1b9a, #9c27b0); }
+        .special .category-header { background: linear-gradient(90deg, #e52e71, #ff6b9d); }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            .categories {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>羽毛球技术要点训练手册</h1>
+            <p class="subtitle">专业技巧 · 高效练习 · 快速提升</p>
+            <p class="intro">本手册系统整理了羽毛球核心技术要点，覆盖准备动作、发力技巧、步法移动和战术策略。建议在每次训练前复习相关部分，逐步将这些要点融入肌肉记忆，提升实战表现。</p>
+        </header>
+        
+        <div class="categories">
+            <!-- 准备动作 -->
+            <div class="category preparation">
+                <div class="category-header">
+                    <i class="fas fa-running"></i>
+                    <h2>准备动作</h2>
+                </div>
+                <div class="category-content">
+                    <div class="point">
+                        <div class="point-number">1</div>
+                        <h3>三曲准备姿势</h3>
+                        <p>准备时保持<span class="highlight">髋、膝、踝三关节弯曲</span>，重心降低</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">3</div>
+                        <h3>架拍姿势</h3>
+                        <p>架拍时要<span class="highlight">抬高手肘</span>，形成良好击球准备</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">21</div>
+                        <h3>手肘位置</h3>
+                        <p>准备动作时<span class="highlight">手肘保持在身前</span>，拍面垂直地面</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">-</div>
+                        <h3>侧身瞄准</h3>
+                        <p>用<span class="highlight">左肩瞄准</span>来辅助侧身和定位</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 挥拍技巧 -->
+            <div class="category swing">
+                <div class="category-header">
+                    <i class="fas fa-baseball-ball"></i>
+                    <h2>挥拍技巧</h2>
+                </div>
+                <div class="category-content">
+                    <div class="point">
+                        <div class="point-number">4</div>
+                        <h3>手腕运用</h3>
+                        <p><span class="highlight">手腕放松</span>灵活，后摇角度足够，击球后随小臂卸力</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">10</div>
+                        <h3>平球回击</h3>
+                        <p>左手区回平球：<span class="highlight">大臂稳定</span>，用手腕力量回拉击球</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">13</div>
+                        <h3>发球技巧</h3>
+                        <p>发球主要依靠<span class="highlight">手腕发力</span>进行精准控制</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">12</div>
+                        <h3>网前控制</h3>
+                        <p>网前球<span class="highlight">不要过度发力</span>，保持下一拍连续性</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 步法移动 -->
+            <div class="category footwork">
+                <div class="category-header">
+                    <i class="fas fa-shoe-prints"></i>
+                    <h2>步法移动</h2>
+                </div>
+                <div class="category-content">
+                    <div class="point">
+                        <div class="point-number">2</div>
+                        <h3>头顶球步法</h3>
+                        <p>1,2节奏中第二步<span class="highlight">右脚起跳</span>，重心落左脚向前推进</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">9</div>
+                        <h3>网前左侧移动</h3>
+                        <p>网前左侧接球时，<span class="highlight">左脚先迈出</span>，面向对手</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">7</div>
+                        <h3>右侧接球</h3>
+                        <p>右侧接球后，<span class="highlight">左脚跟随移动</span>保持平衡</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">-</div>
+                        <h3>启动步技巧</h3>
+                        <p>启动步是<span class="highlight">蹬地发力</span>而非跳跃，用于中长距离移动</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 发力技巧 -->
+            <div class="category power">
+                <div class="category-header">
+                    <i class="fas fa-fist-raised"></i>
+                    <h2>发力技巧</h2>
+                </div>
+                <div class="category-content">
+                    <div class="point">
+                        <div class="point-number">5</div>
+                        <h3>核心力量运用</h3>
+                        <p>击球前<span class="highlight">吸气感受腰腹力量</span>，核心收紧发力</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">14</div>
+                        <h3>杀球发力</h3>
+                        <p>先放松，<span class="highlight">力量集中在触球瞬间</span>爆发</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">16</div>
+                        <h3>发力顺序</h3>
+                        <p><span class="highlight">腰部带动上身</span>而非同时转动，可通过扔网球练习</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">11</div>
+                        <h3>侧身发力</h3>
+                        <p>右侧击球时<span class="highlight">充分侧身</span>，利用身体力量</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 战术策略 -->
+            <div class="category strategy">
+                <div class="category-header">
+                    <i class="fas fa-chess"></i>
+                    <h2>战术策略</h2>
+                </div>
+                <div class="category-content">
+                    <div class="point">
+                        <div class="point-number">6</div>
+                        <h3>落点预判</h3>
+                        <p>对方击球后<span class="highlight">预判落点</span>移动，而非盯着球轨迹</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">8</div>
+                        <h3>后场站位</h3>
+                        <p>后场站位<span class="highlight">居中靠后</span>，覆盖四个角落</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">17</div>
+                        <h3>杀球上网</h3>
+                        <p>杀球后<span class="highlight">立即上网连贯</span>，回中时留意下一球</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">-</div>
+                        <h3>接发球战术</h3>
+                        <p>接发球<span class="highlight">推对方左边腰</span>部，使其被动</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 专项技术 -->
+            <div class="category special">
+                <div class="category-header">
+                    <i class="fas fa-star"></i>
+                    <h2>专项技术</h2>
+                </div>
+                <div class="category-content">
+                    <div class="point">
+                        <div class="point-number">18</div>
+                        <h3>吊球技术</h3>
+                        <p>右手区吊球：<span class="highlight">交叉步第二步左脚发力</span>，动作连贯</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">19</div>
+                        <h3>吊杀一致性</h3>
+                        <p>吊球和杀球<span class="highlight">动作框架一致</span>，仅幅度不同</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">15</div>
+                        <h3>后场节奏</h3>
+                        <p>后场动作<span class="highlight">1,2,3,4连贯</span>，脚步小而连续</p>
+                    </div>
+                    <div class="point">
+                        <div class="point-number">20</div>
+                        <h3>头顶球节奏</h3>
+                        <p>头顶球动作<span class="highlight">一气呵成</span>，不等待球</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>羽毛球技术要点训练手册 | 每次训练前复习，逐步融入肌肉记忆 | 坚持练习，提升显著！</p>
+            <p>© 2023 羽毛球技巧训练中心 | 建议每周至少三次专项练习</p>
+        </footer>
+    </div>
+
+    <script>
+        // 添加简单的交互效果
+        document.addEventListener('DOMContentLoaded', function() {
+            const points = document.querySelectorAll('.point');
+            
+            points.forEach(point => {
+                point.addEventListener('click', function() {
+                    this.classList.toggle('active');
+                });
+            });
+            
+            // 添加页面加载动画
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 200);
+        });
+    </script>
+</body>
+</html>
